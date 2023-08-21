@@ -17,7 +17,17 @@ export default function RootLayout({
       lang='en'
       className={`${MontserratFont.variable} ${Playfair.variable}`}
     >
-      <body>{children}</body>
+      <body className='flex flex-col lg:grid-cols-12 lg:grid lg:auto-rows-min h-screen'>
+        <header className=' lg:row-start-1 lg:col-span-full lg:self-start p-8 border-b-2 border-greylight'>
+          header
+        </header>
+        <main className='h-screen lg:row-start-2 lg:col-start-3 lg:col-end-13 p-8 overflow-y-scroll'>
+          {children}
+        </main>
+        <aside className='lg:row-start-2 lg:col-span-2 p-8 border-greylight border-t-2 lg:border-r-2 lg:border-t-0 '>
+          side bar
+        </aside>
+      </body>
     </html>
   );
 }
