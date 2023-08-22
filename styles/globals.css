@@ -23,6 +23,11 @@ body {
   @apply text-text bg-background;
 }
 
+p {
+  line-height: 120%;
+  margin-bottom: 2rem;
+}
+
 h1,
 h2,
 h3,
@@ -57,6 +62,11 @@ h5 {
 
 h6 {
   font-size: var(--h6);
+}
+
+button {
+  @apply bg-primary text-white text-[2rem] rounded-3xl px-12 py-5;
+  line-height: normal;
 }
 
 @media screen and (min-width: 1024px) {

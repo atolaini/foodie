@@ -1,11 +1,23 @@
-export default function Home() {
+import Link from 'next/link';
+import { auth } from '@clerk/nextjs';
+
+import Button from '@/components/ui/button';
+import Card from '@/components/ui/card';
+
+export default async function Home() {
+  const { userId } = await auth();
+
+  const href = userId ? '/profile' : '/signup';
+
   return (
-    <>
-      <h1>This is the homepage</h1>
-      <h2>This is the homepage</h2>
-      <h3>This is the homepage</h3>
-      <h4>This is the homepage</h4>
-      <h5>This is the homepage</h5>
-    </>
+    <Card className='flex flex-col'>
+      <h1>
+        Friends through <span className='text-primary font-bold'>Food</span>
+      </h1>
+      <p>A place to find and share recipies and make friends while doing it.</p>
+      <Link href={href}>
+        <Button>Sign in</Button>
+      </Link>
+    </Card>
   );
 }

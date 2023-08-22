@@ -1,6 +1,6 @@
-import { Playfair_Display, Montserrat } from 'next/font/google';
+import { Quicksand, Montserrat } from 'next/font/google';
 
-export const Playfair = Playfair_Display({
+export const Quicksand_font = Quicksand({
   variable: '--font-heading',
   display: 'swap',
   subsets: ['latin-ext'],

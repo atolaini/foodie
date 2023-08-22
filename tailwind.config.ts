@@ -17,6 +17,7 @@ const config: Config = {
         primary: '#FF6B6B',
         secondary: '#62D2A2',
         accent: '#FFD700',
+        cream: '#faf5ed',
         background: '#F9F9F9',
         text: '#333333',
         greylight: '#CCCCCC',

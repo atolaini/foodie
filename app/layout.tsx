@@ -1,6 +1,10 @@
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
-import { MontserratFont, Playfair } from '@/lib/font_imports';
+import { MontserratFont, Quicksand_font } from '@/lib/font_imports';
+
+import { ClerkProvider } from '@clerk/nextjs';
+
+import Logo from '@/components/navigation/Logo';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -13,21 +17,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang='en'
-      className={`${MontserratFont.variable} ${Playfair.variable}`}
-    >
-      <body className='flex flex-col lg:grid-cols-12 lg:grid lg:auto-rows-min h-screen'>
-        <header className=' lg:row-start-1 lg:col-span-full lg:self-start p-8 border-b-2 border-greylight'>
-          header
-        </header>
-        <main className='h-screen lg:row-start-2 lg:col-start-3 lg:col-end-13 p-8 overflow-y-scroll'>
-          {children}
-        </main>
-        <aside className='lg:row-start-2 lg:col-span-2 p-8 border-greylight border-t-2 lg:border-r-2 lg:border-t-0 '>
-          side bar
-        </aside>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html
+        lang='en'
+        className={`${MontserratFont.variable} ${Quicksand_font.variable}`}
+      >
+        <body className='flex flex-col lg:grid-cols-12 lg:grid lg:auto-rows-min h-screen'>
+          <header className='lg:row-start-1 lg:col-span-full lg:self-start p-8 border-b-2 border-greylight flex justify-between items-center'>
+            <Logo />
+            <div>Clerk logo</div>
+          </header>
+          <main className='h-screen lg:row-start-2 lg:col-start-3 lg:col-end-13 p-8 overflow-y-scroll'>
+            {children}
+          </main>
+          <aside className='lg:row-start-2 lg:col-span-2 p-8 border-greylight border-t-2 lg:border-r-2 lg:border-t-0 '>
+            side bar
+          </aside>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
