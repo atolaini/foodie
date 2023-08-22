@@ -23,7 +23,7 @@ export default function RootLayout({
         className={`${MontserratFont.variable} ${Quicksand_font.variable}`}
       >
         <body className='flex flex-col lg:grid-cols-12 lg:grid lg:auto-rows-min h-screen'>
-          <header className='lg:row-start-1 lg:col-span-full lg:self-start p-8 border-b-2 border-greylight flex justify-between items-center'>
+          <header className='lg:row-start-1 lg:col-span-full lg:self-start px-4 py-5 border-b-2 border-greylight flex justify-between items-center'>
             <Logo />
             <div>Clerk logo</div>
           </header>

@@ -15,9 +15,10 @@ const config: Config = {
       },
       colors: {
         primary: '#FF6B6B',
+        primary_dark: '#ff4f4f',
         secondary: '#62D2A2',
         accent: '#FFD700',
-        cream: '#faf5ed',
+        cream: '#fffbf5',
         background: '#F9F9F9',
         text: '#333333',
         greylight: '#CCCCCC',

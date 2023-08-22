@@ -7,15 +7,18 @@ import Card from '@/components/ui/card';
 export default async function Home() {
   const { userId } = await auth();
 
-  const href = userId ? '/profile' : '/signup';
+  const href = userId ? '/profile' : '/sign-up';
 
   return (
     <Card className='flex flex-col'>
-      <h1>
+      <h1 className='text-medium'>
         Friends through <span className='text-primary font-bold'>Food</span>
       </h1>
       <p>A place to find and share recipies and make friends while doing it.</p>
-      <Link href={href}>
+      <Link
+        href={href}
+        className='self-start'
+      >
         <Button>Sign in</Button>
       </Link>
     </Card>
