@@ -6,8 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model User {
@@ -38,5 +39,6 @@ model Recipe {
   favouritedBy   User?    @relation("Favourited recipe", fields: [favouritedById], references: [id])
   favouritedById String?
 
-  @@unique([authorId, id])
+  @@index([authorId], name: "authorId")
+  @@index([favouritedById], name: "favouritedById")
 }
