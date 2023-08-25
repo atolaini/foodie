@@ -66,10 +66,36 @@ h6 {
   font-size: var(--h6);
 }
 
-button {
+button,
+[type='submit'],
+[type='button'] {
   @apply bg-primary text-white text-lg rounded-lg px-8 py-3 hover:bg-primary_dark;
   line-height: normal;
   transition: var(--transition);
+}
+
+.radio-button {
+  @apply text-white text-lg rounded-lg px-8 py-3 hover:bg-primary_dark;
+  position: relative;
+  overflow: hidden;
+}
+
+.radio-button input[type='checkbox'] {
+  -webkit-appearance: none;
+}
+
+.radio-button input[type='checkbox']::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  @apply bg-primary rounded-lg;
+}
+
+.radio-button input[type='checkbox']:checked::before {
+  @apply bg-secondary;
 }
 
 @media screen and (min-width: 1024px) {

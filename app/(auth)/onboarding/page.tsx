@@ -1,11 +1,9 @@
 import { currentUser } from '@clerk/nextjs';
 
-import AccountProfile from '@/components/forms/accountProfile';
-import Card from '@/components/ui/card';
+import Card from '@/components/ui/Card';
+import AccountProfile from '@/components/forms/AccountProfile';
 
 export default async function OnBoarding() {
-  const user = await currentUser();
-
   return (
     <>
       <h1>

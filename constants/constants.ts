@@ -20,3 +20,24 @@ export const navigation = [
     href: '/following',
   },
 ];
+
+export const cuisines = [
+  {
+    name: 'African',
+  },
+  {
+    name: 'American',
+  },
+  {
+    name: 'English',
+  },
+  {
+    name: 'French',
+  },
+  {
+    name: 'Italian',
+  },
+  {
+    name: 'Japanese',
+  },
+];

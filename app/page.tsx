@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { auth } from '@clerk/nextjs';
 
-import Button from '@/components/ui/button';
-import Card from '@/components/ui/card';
+import Button from '@/components/ui/Button';
+import Card from '@/components/ui/Card';
 
 export default async function Home() {
   const { userId } = await auth();

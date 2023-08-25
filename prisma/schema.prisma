@@ -23,6 +23,7 @@ model User {
   image            String?
   bio              String?
   onboarded        Boolean  @default(false)
+  favouriteCuisine String?
   createdRecipes   Recipe[] @relation("created recipe")
   favouriteRecipes Recipe[] @relation("Favourited recipe")
 }
