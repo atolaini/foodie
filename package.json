@@ -16,7 +16,6 @@
     "@types/node": "20.5.1",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
-    "autoprefixer": "10.4.15",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.18",
     "next": "13.4.18",
@@ -29,10 +28,14 @@
     "zod": "^3.22.1"
   },
   "devDependencies": {
+    "@clerk/types": "^3.50.0",
     "@hookform/devtools": "^4.3.1",
     "@testing-library/react": "^14.0.0",
     "@vitejs/plugin-react": "^4.0.4",
+    "autoprefixer": "^10.4.15",
     "happy-dom": "^10.10.4",
+    "postcss-nested": "^6.0.1",
+    "postcss-nesting": "^12.0.1",
     "prisma": "^5.2.0",
     "vitest": "^0.34.2"
   }

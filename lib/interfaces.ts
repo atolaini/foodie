@@ -4,12 +4,12 @@ export interface User {
   email: string;
   name: string;
   username: string;
-  image: string;
-  bio: string;
+  image?: string;
+  bio?: string;
   onboarded: boolean;
   createdRecipes: string[];
   favouriteRecipes: string[];
-  favouriteCusiines: string[];
+  favourite_cuisines: string;
 }
 
 export interface InputProps
@@ -27,5 +27,10 @@ export interface TextareaProps
 export interface RadioProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   ref: React.ForwardedRef<HTMLInputElement>;
+  label: string;
+}
+
+export interface FormControlProps {
+  children: React.ReactNode;
   label: string;
 }

@@ -4,6 +4,8 @@ import Card from '@/components/ui/Card';
 import AccountProfile from '@/components/forms/AccountProfile';
 
 export default async function OnBoarding() {
+  const user = await currentUser();
+
   return (
     <>
       <h1>
@@ -14,7 +16,7 @@ export default async function OnBoarding() {
         little something about yourself.
       </p>
       <Card>
-        <AccountProfile />
+        <AccountProfile user={user} />
       </Card>
     </>
   );
