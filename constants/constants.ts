@@ -29,9 +29,6 @@ export const cuisines = [
     name: 'American',
   },
   {
-    name: 'English',
-  },
-  {
     name: 'French',
   },
   {
