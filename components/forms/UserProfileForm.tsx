@@ -46,7 +46,7 @@ const UserProfileForm = ({ user }: CurrentUser) => {
       }
     }
 
-    console.log(blob);
+    console.log(values);
   };
 
   const handleImage = (
@@ -79,6 +79,7 @@ const UserProfileForm = ({ user }: CurrentUser) => {
         img_url=''
         label='Upload Profile image'
         {...register('profile_image')}
+        onChange={(e) => handleImage(e, register('profile_image').onChange)}
       />
       <Input
         label='Name'
