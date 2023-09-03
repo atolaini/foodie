@@ -1,11 +1,9 @@
 import Card from '../ui/Card';
 
-const ProfileDetails = ({ userDetails }) => {
+const ProfileDetails = () => {
   return (
     <Card>
-      <h3>
-        Welcome <span> {userDetails.username} </span>
-      </h3>
+      <h3>Profile details</h3>
     </Card>
   );
 };

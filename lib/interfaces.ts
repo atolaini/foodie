@@ -1,15 +1,25 @@
-export interface User {
-  id: string;
-  clerkId: string;
-  email: string;
-  name: string;
-  username: string;
-  image?: string;
-  bio?: string;
-  onboarded: boolean;
-  createdRecipes: string[];
-  favouriteRecipes: string[];
-  favourite_cuisines: string;
+import { ImageUpload } from '@/components/forms/ui/inputs';
+
+// export interface User {
+//   id: string;
+//   clerkId: string;
+//   email: string;
+//   name: string;
+//   username: string;
+//   image?: string;
+//   bio?: string;
+//   onboarded: boolean;
+//   createdRecipes: string[];
+//   favouriteRecipes: string[];
+//   favourite_cuisines: string;
+// }
+
+export interface CurrentUser {
+  user: {
+    id: string;
+    firstName?: string | null;
+    lastName?: string | null;
+  };
 }
 
 export interface InputProps
@@ -33,4 +43,9 @@ export interface RadioProps
 export interface FormControlProps {
   children: React.ReactNode;
   label: string;
+  className?: string;
+}
+
+export interface ImageUploadProps extends InputProps {
+  img_url?: string;
 }

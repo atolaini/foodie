@@ -75,9 +75,10 @@ button,
 }
 
 .radio-button {
-  @apply text-white text-lg rounded-lg px-8 py-3 hover:bg-primary_dark;
+  @apply text-text text-lg rounded-lg px-8 py-3 hover:bg-primary_dark;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .radio-button input[type='checkbox'] {
@@ -91,7 +92,8 @@ button,
   left: 0;
   height: 100%;
   width: 100%;
-  @apply bg-primary rounded-lg;
+  cursor: pointer;
+  @apply bg-accent rounded-lg;
 }
 
 .radio-button input[type='checkbox']:checked::before {

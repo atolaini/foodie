@@ -1,9 +1,9 @@
 import Card from './Card';
 
-const RecipeCard = ({ recipe }) => {
+const RecipeCard = () => {
   return (
     <Card>
-      <h4>{recipe.name}</h4>
+      <h4>Recipe card</h4>
     </Card>
   );
 };
