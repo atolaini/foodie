@@ -48,4 +48,5 @@ export interface FormControlProps {
 
 export interface ImageUploadProps extends InputProps {
   img_url?: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

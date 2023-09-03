@@ -72,7 +72,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, RadioProps>(
 );
 
 export const ImageUpload = React.forwardRef<HTMLInputElement, ImageUploadProps>(
-  ({ label, img_url }, ref) => {
+  ({ label, img_url, onChange, ...props }, ref) => {
     return (
       <div className='flex items-center gap-4 pb-4 border-b-2 border-greyLight mb-5'>
         {!img_url ? (
@@ -92,9 +92,12 @@ export const ImageUpload = React.forwardRef<HTMLInputElement, ImageUploadProps>(
         )}
         <FormControl label={label}>
           <input
-            type='file'
+            //type='file'
             className='border-2 transition duration-2000 border-text-20 bg-transparent rounded-md p-2 w-full focus:border-secondary focus:outline-none'
-            ref={ref}
+            onChange={onChange}
+            //ref={ref}
+            accept='image/*'
+            {...props}
           />
         </FormControl>
       </div>
