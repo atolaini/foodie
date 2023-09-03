@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState, useEffect } from 'react';
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -25,6 +25,9 @@ const UserProfileForm = ({ user }: CurrentUser) => {
   const { startUpload } = useUploadThing('media');
 
   const [files, setFiles] = useState<File[]>([]);
+  const [imageUrl, setImageUrl] = useState<string>('');
+
+  console.log('STATE IS HERE: ', files);
 
   const {
     register,
@@ -37,22 +40,21 @@ const UserProfileForm = ({ user }: CurrentUser) => {
   const onSubmitHandler = async (values: z.infer<typeof userValidation>) => {
     const blob = values.profile_image;
 
-    const hasImageChanged = isBase64Image(blob);
-    if (hasImageChanged) {
-      const imgRes = await startUpload(files);
+    const imgRes = await startUpload(files);
+    console.log('isUploading');
 
-      if (imgRes && imgRes[0].fileUrl) {
-        values.profile_image = imgRes[0].fileUrl;
-      }
+    if (imgRes && imgRes[0].fileUrl) {
+      values.profile_image = imgRes[0].fileUrl;
     }
 
-    console.log(values);
+    console.log('VALUES: ', values);
   };
 
-  const handleImage = (
-    e: ChangeEvent<HTMLInputElement>,
-    fieldChange: (value: string) => void
-  ) => {
+  useEffect(() => {
+    setImageUrl(files.map((file) => URL.createObjectURL(file)).toString());
+  }, [files]);
+
+  const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
 
     const fileReader = new FileReader();
@@ -65,10 +67,19 @@ const UserProfileForm = ({ user }: CurrentUser) => {
 
       fileReader.onload = async (event) => {
         const imageDataUrl = event.target?.result?.toString() || '';
-        fieldChange(imageDataUrl);
+
+        // Create a mock event object
+        const mockEvent = {
+          target: {
+            value: imageDataUrl,
+          },
+        };
+
+        // Call the onChange function with the mock event
+        register('profile_image').onChange(mockEvent);
       };
 
-      fileReader.readAsDataURL(file);
+      //fileReader.readAsDataURL(file);
     }
   };
 
@@ -76,10 +87,9 @@ const UserProfileForm = ({ user }: CurrentUser) => {
     <form onSubmit={handleSubmit(onSubmitHandler)}>
       <ImageUpload
         type='file'
-        img_url=''
+        img_url={`${imageUrl}` || ''}
         label='Upload Profile image'
-        {...register('profile_image')}
-        onChange={(e) => handleImage(e, register('profile_image').onChange)}
+        onChange={(e) => handleImage(e)}
       />
       <Input
         label='Name'
